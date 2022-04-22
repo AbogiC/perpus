@@ -4,7 +4,7 @@ public class Dto1DataPerpus {
     private int id;
     private String nama;
     private String jabatan;
-    private Long no_telp;
+    private char no_telp;
     private String alamat;
 
     public int getId() {
@@ -31,11 +31,11 @@ public class Dto1DataPerpus {
         this.jabatan = jabatan;
     }
 
-    public Long getNo_telp() {
+    public char getNo_telp() {
         return no_telp;
     }
 
-    public void setNo_telp(Long no_telp) {
+    public void setNo_telp(char no_telp) {
         this.no_telp = no_telp;
     }
 
@@ -47,3 +47,4 @@ public class Dto1DataPerpus {
         this.alamat = alamat;
     }
 }
+

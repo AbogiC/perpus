@@ -1,23 +1,12 @@
-package com.database.perpus.model.entity;
+package com.database.perpus.model.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "t_petugas")
-public class Entity1DataPerpus {
-    @Id
-    @Column(name = "id_petugas")
+public class Dto2DataPerpus {
     private int id;
-    @Column(name = "nama_petugas")
+    private char kode;
     private String nama;
-    @Column(name = "jabatan_petugas")
-    private String jabatan;
-    @Column(name = "no_telp_petugas")
+    private char jk;
+    private char jurusan;
     private char no_telp;
-    @Column(name = "alamat_petugas")
     private String alamat;
 
     public int getId() {
@@ -28,6 +17,14 @@ public class Entity1DataPerpus {
         this.id = id;
     }
 
+    public char getKode() {
+        return kode;
+    }
+
+    public void setKode(char kode) {
+        this.kode = kode;
+    }
+
     public String getNama() {
         return nama;
     }
@@ -36,12 +33,20 @@ public class Entity1DataPerpus {
         this.nama = nama;
     }
 
-    public String getJabatan() {
-        return jabatan;
+    public char getJk() {
+        return jk;
     }
 
-    public void setJabatan(String jabatan) {
-        this.jabatan = jabatan;
+    public void setJk(char jk) {
+        this.jk = jk;
+    }
+
+    public char getJurusan() {
+        return jurusan;
+    }
+
+    public void setJurusan(char jurusan) {
+        this.jurusan = jurusan;
     }
 
     public char getNo_telp() {
@@ -60,4 +65,3 @@ public class Entity1DataPerpus {
         this.alamat = alamat;
     }
 }
-
