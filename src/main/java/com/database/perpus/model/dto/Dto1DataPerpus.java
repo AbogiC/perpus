@@ -1,18 +1,18 @@
 package com.database.perpus.model.dto;
 
 public class Dto1DataPerpus {
-    private int id;
+    private int id_petugas;
     private String nama;
     private String jabatan;
     private char no_telp;
     private String alamat;
 
-    public int getId() {
-        return id;
+    public int getId_petugas() {
+        return id_petugas;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_petugas(int id_petugas) {
+        this.id_petugas = id_petugas;
     }
 
     public String getNama() {
