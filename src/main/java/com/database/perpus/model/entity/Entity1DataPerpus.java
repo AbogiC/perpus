@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Entity1DataPerpus {
     @Id
     @Column(name = "id_petugas")
-    private int id;
+    private int id_petugas;
     @Column(name = "nama_petugas")
     private String nama;
     @Column(name = "jabatan_petugas")
@@ -20,12 +20,12 @@ public class Entity1DataPerpus {
     @Column(name = "alamat_petugas")
     private String alamat;
 
-    public int getId() {
-        return id;
+    public int getId_petugas() {
+        return id_petugas;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_petugas(int id) {
+        this.id_petugas = id;
     }
 
     public String getNama() {
