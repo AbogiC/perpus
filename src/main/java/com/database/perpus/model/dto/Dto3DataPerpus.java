@@ -1,7 +1,7 @@
 package com.database.perpus.model.dto;
 
 public class Dto3DataPerpus {
-    private int id;
+    private int id_buku;
     private char kode;
     private String judul;
     private String penulis;
@@ -9,12 +9,12 @@ public class Dto3DataPerpus {
     private char tahun;
     private int stok;
 
-    public int getId() {
-        return id;
+    public int getId_buku() {
+        return id_buku;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_buku(int id_buku) {
+        this.id_buku = id_buku;
     }
 
     public char getKode() {

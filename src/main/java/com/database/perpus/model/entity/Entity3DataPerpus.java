@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Entity3DataPerpus {
     @Id
     @Column(name = "id_buku")
-    private int id;
+    private int id_buku;
     @Column(name = "kode_buku", unique = true)
     private char kode;
     @Column(name = "judul_buku")
@@ -24,12 +24,12 @@ public class Entity3DataPerpus {
     @Column(name = "stok")
     private int stok;
 
-    public int getId() {
-        return id;
+    public int getId_buku() {
+        return id_buku;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_buku(int id) {
+        this.id_buku = id;
     }
 
     public char getKode() {
