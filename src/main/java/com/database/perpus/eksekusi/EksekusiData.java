@@ -2,10 +2,13 @@ package com.database.perpus.eksekusi;
 
 import com.database.perpus.model.dto.Dto1DataPerpus;
 import com.database.perpus.model.dto.Dto2DataPerpus;
+import com.database.perpus.model.dto.Dto3DataPerpus;
 import com.database.perpus.model.entity.Entity1DataPerpus;
 import com.database.perpus.model.entity.Entity2DataPerpus;
+import com.database.perpus.model.entity.Entity3DataPerpus;
 import com.database.perpus.repository.Repo1DataPerpus;
 import com.database.perpus.repository.Repo2DataPerpus;
+import com.database.perpus.repository.Repo3DataPerpus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -16,9 +19,11 @@ import java.util.List;
 public class EksekusiData {
     private final Repo1DataPerpus repo1DataPerpus;
     private final Repo2DataPerpus repo2DataPerpus;
-    public EksekusiData(Repo1DataPerpus repo1DataPerpus, Repo2DataPerpus repo2DataPerpus) {
+    private final Repo3DataPerpus repo3DataPerpus;
+    public EksekusiData(Repo1DataPerpus repo1DataPerpus, Repo2DataPerpus repo2DataPerpus, Repo3DataPerpus repo3DataPerpus) {
         this.repo1DataPerpus = repo1DataPerpus;
         this.repo2DataPerpus = repo2DataPerpus;
+        this.repo3DataPerpus = repo3DataPerpus;
     }
 
 
@@ -63,6 +68,28 @@ public class EksekusiData {
         entity.setAlamat(dto.getAlamat());
         return entity;
     }
+    public Dto3DataPerpus convert3EntityToDto(Entity3DataPerpus entity){
+        Dto3DataPerpus dto = new Dto3DataPerpus();
+        dto.setId(entity.getId());
+        dto.setKode(entity.getKode());
+        dto.setJudul(entity.getJudul());
+        dto.setPenulis(entity.getPenulis());
+        dto.setPenerbit(entity.getPenerbit());
+        dto.setTahun(entity.getTahun());
+        dto.setStok(entity.getStok());
+        return dto;
+    }
+    public Entity3DataPerpus convert3DtoToEntity(Dto3DataPerpus dto){
+        Entity3DataPerpus entity = new Entity3DataPerpus();
+        entity.setId(dto.getId());
+        entity.setKode(dto.getKode());
+        entity.setJudul(dto.getJudul());
+        entity.setPenulis(dto.getPenulis());
+        entity.setPenerbit(dto.getPenerbit());
+        entity.setTahun(dto.getTahun());
+        entity.setStok(dto.getStok());
+        return entity;
+    }
 
     @GetMapping("/listdatapetugas")
     public List<Dto1DataPerpus> getListPetugas(){
@@ -92,6 +119,22 @@ public class EksekusiData {
     public Dto2DataPerpus saveanggota(@RequestBody Dto2DataPerpus dto){
         Entity2DataPerpus entity = convert2DtoToEntity(dto);
         repo2DataPerpus.save(entity);
+        return dto;
+    }
+
+    @GetMapping("/listdatabuku")
+    public List<Dto3DataPerpus> getListBuku(){
+        List<Dto3DataPerpus> list = new ArrayList<>();
+        for(Entity3DataPerpus m : repo3DataPerpus.findAll()){
+            list.add(convert3EntityToDto(m));
+        }
+        return list;
+    }
+
+    @PostMapping("/savebuku")
+    public Dto3DataPerpus savebuku(@RequestBody Dto3DataPerpus dto){
+        Entity3DataPerpus entity = convert3DtoToEntity(dto);
+        repo3DataPerpus.save(entity);
         return dto;
     }
 }
